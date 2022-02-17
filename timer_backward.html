@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>time_forward | aruntejamenda</title>
+        <meta type="viewport" content ="width=device-width, initial-scale=1"/>
+        <script src="jquery.js"></script>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .time{
+                font-size: xx-large;
+                margin: 0;
+                padding: 0;
+                width:40px;
+                color:red;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="timer">
+            <span id="hours" class="time" >00</span> :<span id="minutes" class="time" >00</span> :<span id="seconds" class="time" >00</span>
+        </div>
+        <script>
+            var h = document.getElementById("hours"), m = document.getElementById("minutes"), s = document.getElementById("seconds");            
+            var distance = (3600);//no of seconds
+            var x = setInterval(function() {
+                var hours = Math.floor((distance % ( 60 * 60 * 24)) / ( 60 * 60)), minutes = Math.floor((distance % ( 60 * 60)) / ( 60)), seconds = Math.floor(distance % 60);
+                h.textContent = hours;m.textContent = minutes;s.textContent = seconds;
+                distance = distance-1;
+                // console.log(distance);
+                if (distance < 0) {clearInterval(x);alert("expired!!");}
+            }, 1000);
+        </script>
+    </body>
+</html>
+
+
+<!-- 1hr = 60mins * 60secs;
+3600secs = 1hr -->

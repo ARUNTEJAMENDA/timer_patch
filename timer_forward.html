@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>time_forward | aruntejamenda</title>
+        <meta type="viewport" content ="width=device-width, initial-scale=1"/>
+        <script src="jquery.js"></script>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .time{
+                font-size: xx-large;
+                margin: 0;
+                padding: 0;
+                width:40px;
+                color:red;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="timer">
+            <span id="hours" class="time" >00</span> :
+            <span id="minutes" class="time" >00</span> :
+            <span id="seconds" class="time" >00</span>
+        </div>
+        <script>
+            var s = 0;
+            var m = 0;
+            var h = 0;
+            $(document).ready(function(){
+                setInterval(function(){
+                    s = s + 1;
+                    document.getElementById("seconds").textContent = s;
+                    if (s==60){
+                        m = m+1;
+                        document.getElementById("minutes").textContent = m;
+                        // m_lert();
+                        s = 0;
+                        document.getElementById("seconds").textContent = s;
+                    }if (minutes==60){
+                        h = h + 1;
+                        document.getElementById("hours").textContent = h;
+                        // h_lert();
+                        m = 0;
+                        document.getElementById("minutes").textContent = m;
+                    }
+                },1000);
+                function m_lert(){
+                    console.log("minute")
+                    alert("a minute");
+                }
+                function h_lert(){
+                    console.log("a hour")
+                    alert("a hour");
+                }
+            });
+        </script>
+    </body>
+</html>
